@@ -1,0 +1,80 @@
+<h2 class = "page-header"> BMI and BMR</h2>
+<div class="row-md-4">
+
+<p><small> The abbreviations BMI and BMR sound similar, but they stand for two separate things. Your BMI, or <b>body mass index</b>, is a number calculated from your height and weight which is then used to assess your body composition. Your BMR, or <b>basal metabolic rate</b>, is the number of calories you burn when your body is at rest. Although the two terms are independent of each other, your BMI may indirectly affect your BMR.</small></p>
+<p><small>While BMI and BMR can be used seperately as guidelines that allow oneself to make an educated determination about his/hers body composition and calorie burn, by knowing both one can make an even better estimation on what his/hers calorie goals and diet plans should be. </small></p>
+</div>
+
+<button type="button" aria-controls="Calculate your BMR" (click)="toggleBMR()">Calculate your BMR </button>
+<div class="w3-animate-opacity" *ngIf="BMR">
+<form (submit)="onBMRSubmit()" >
+<div>
+<label for="BMRgen">Gender</label>
+<br>
+  <input type="radio" [(ngModel)]="BMRgen" id="BMRgen" name="BMRgen" value="male"> Male
+  <input type="radio" [(ngModel)]="BMRgen" id="BMRgen" name="BMRgen" value="female"> Female
+</div>
+<div>
+<label for="BMRex">Daily Activity</label>
+<br>
+  <input type="radio" [(ngModel)]="BMRex" id="BMRex" name="BMRex" value="1.22">Sedentary
+  <input type="radio" [(ngModel)]="BMRex" id="BMRex" name="BMRex" value="1.55">Light
+  <input type="radio" [(ngModel)]="BMRex" id="BMRex" name="BMRex" value="1.76">Active
+  <input type="radio" [(ngModel)]="BMRex" id="BMRex" name="BMRex" value="2.25">Heavy
+</div>
+<div>
+<label for="BMRheight">Height</label>
+  <br>
+  <input type="number" [(ngModel)]="BMRheight" name="BMRheight"  id="BMRheight" placeholder="Enter Height (in cm)" width = "30%" align="left">
+  <small id="heightHelp" class="form-text text-muted">Height in cm.</small>
+
+</div>
+<div>
+<label for="BMRweight">Weight</label>
+  <br>
+  <input type="number" [(ngModel)]="BMRweight" name="BMRweight"  id="BMRweight" placeholder="Enter weight (in kg)" width = "30%" align="left">
+  <small id="weightHelp" class="form-text text-muted">Weight in kg.</small>
+</div>
+<div>
+<label for="BMRage">Age</label>
+  <br>
+  <input type="number" [(ngModel)]="BMRage" name="BMRage"  id="BMRage" placeholder="Enter age" width = "30%" align="left">
+</div>
+<input type="submit" class="btn btn-primary" value="Submit">
+</form>
+<div *ngIf="BMRstepsrdy" align="center">
+ <h4> Based on your last recorded steps ({{steps}}) you burned {{BMRsteps}} Calories. </h4>
+</div>
+<div class="w3-animate-opacity" *ngIf="BMRrdy" align="center">
+   <h4> Your BMR is: {{BMRcalc}} </h4>
+   <h4> Your Total Daily Energy Expenditure is: {{BMRtotal}}</h4>
+  </div>
+
+</div>
+
+<br>
+<button type="button" aria-controls="Calculate your BMI" (click)="toggleBMI()">Calculate your BMI </button>
+<div class="w3-animate-opacity" *ngIf="BMI">
+<form (submit)="onBMISubmit()" >
+  <div>
+  <label for="BMIheight">Height</label>
+  <br>
+    <input type="number" [(ngModel)]="BMIheight" name="BMIheight"  id="BMIheight" placeholder="Enter Height (in cm)" width = "30%" align="left">
+     <small id="heightHelp" class="form-text text-muted">Height in cm.</small>
+  </div>
+  <div>
+  <label for="BMIweight">Weight</label>
+  <br>
+    <input type="number" [(ngModel)]="BMIweight" name="BMIweight" id="BMIweight" placeholder="Enter Weight (in cm)" width ="30%" align="left">
+    <small id="WeightHelp" class="form-text text-muted">Weight in kg.</small>
+  </div>
+  <input type="submit" class="btn btn-primary" value="Submit">
+</form>
+ <div class="w3-animate-opacity" *ngIf="BMIrdy" align="center">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/BMI_chart.svg/2000px-BMI_chart.svg.png" width="50%" height="70%"> 
+   <h4> Your BMI is: {{BMIcalc}} </h4>
+  </div>
+
+</div>
+<br>
+<br>

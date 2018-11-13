@@ -1,0 +1,102 @@
+<style>
+body {
+    margin: 0 auto;
+    max-width: 800px;
+    padding: 0 20px;
+}
+
+div.ex1 {
+    background-color: white;
+    width: 100%;
+    height: 400px;
+    overflow: scroll;
+}
+
+.container {
+    border: 2px solid #dedede;
+    background-color: #f1f1f1;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px 0;
+}
+
+.container darker {
+    border-color: #ccc;
+    background-color: #ddd;
+}
+
+.container::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.container img {
+    float: left;
+    max-width: 60px;
+    width: 100%;
+    margin-right: 20px;
+    border-radius: 50%;
+}
+
+.container img.right {
+    float: right;
+    margin-left: 20px;
+    margin-right:0;
+}
+
+.time-right {
+    float: right;
+    color: #aaa;
+}
+
+.time-left {
+    float: left;
+    color: #999;
+}
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<h2 class="page-header">Send Private Message</h2>
+<form (submit)="onMessageSend()" >
+   <div *ngIf="user">
+   <div *ngIf="user.role == 'Doctor'">
+   <div *ngIf="users">
+   <div class="dropdown-toggle" >
+   <select id="Recipient">
+  <option style="display:none" disable selected value>Select Recipient</option>
+  <option *ngFor="let users of users.users">
+   {{users.name}}
+  </option>
+  </select>
+  <form (submit)="onRefresh()" >
+   <input type="image" src ="https://cdn2.iconfinder.com/data/icons/dark-action-bar-2/96/refresh-512.png" height="4%" width="4%" value="Refresh">
+  </form>
+  </div>
+  </div>
+  </div>
+  </div>
+
+   <div *ngIf="user">
+   <div *ngIf="user.role == 'Patient'">
+   <div *ngIf="docs">
+   <select id="Recipient" >
+  <option style="display:none" disable selected value>Select Recipient</option>
+  <option *ngFor="let users of docs.users">
+   {{users.name}}
+  </option>
+  </select>
+   <form (submit)="onRefresh()" >
+   <input type="image" src ="https://cdn2.iconfinder.com/data/icons/dark-action-bar-2/96/refresh-512.png" height="4%" width="4%" value="Refresh">
+  </form>
+
+  </div>
+  </div>
+  </div>
+<div id="messagebox" class="ex1">
+</div>
+    <div >
+    <label for="Message">Message</label>
+    <input type="text" [(ngModel)]="Message" name="Message" class="form-control input-lg" id="Message" placeholder="Enter Message" >
+    </div>
+ <input type="submit" class="btn btn-primary" value="Send">
+</form>

@@ -1,0 +1,33 @@
+<div class="jumbotron text-center">
+  <h1>Hexi Sensor Data</h1>
+  <p class="lead">Welcome to our Health and Care app!</p>
+ 
+ <div *ngIf="user">
+     <h3>{{user.name}} </h3>
+  </div>
+
+  <div *ngIf="!user">
+     <a class="btn btn-default" [routerLink]="['/login']">Login</a>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-4">
+    <a href="https://www.bbcgoodfood.com/howto/guide/collection/healthy-eating" target="_blank">Eat well</a>
+    <p>Combined with physical activity, eating nutritious foods in the right amounts can help keep you healthy. Many illnesses, such as heart disease, obesity, high blood pressure, type 2 diabetes, and osteoporosis, can be prevented or controlled with dietary changes and exercise. Calcium and vitamin D supplements can help women prevent osteoporosis.</p>
+  </div>
+  <div class="col-md-4">
+    <a href="https://www.everydayhealth.com/fitness-pictures/ways-to-stay-active-all-day.aspx#01" target="_blank">Keep active</a>
+    <p>Do something to keep fit each day something you enjoy that maintains strength, balance and flexibility and promotes cardiovascular health. Physical activity helps you stay at a healthy weight, prevent or control illness, sleep better, reduce stress, avoid falls and look and feel better, too.</p>
+  </div>
+  <div class="col-md-4">
+    <a href="https://www.everydayhealth.com/longevity/future-planning/prevent-falls-at-home.aspx" target="_blank">Prevent falls</a>
+    <p>We become vulnerable to falls as we age. Prevent falls and injury by removing loose carpet or throw rugs. Keep paths clear of electrical cords and clutter, and use night-lights in hallways and bathrooms. Did you know that people who walk barefoot fall more frequently? Wear shoes with good support to reduce the risk of falling.</p>
+  </div>
+</div>
+
+<br>
+
+<div class="jumbotron text-center">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/tx3Oc0SIZnI" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+</div>

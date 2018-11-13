@@ -1,0 +1,59 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+ <link = rel="stylesheet" href="dashboard.component.css">
+</head>
+<body>
+<h2 class="page-header" >Data</h2>
+<div *ngIf="user">
+<div *ngIf="user.role == 'Patient'">
+<p>Welcome to your Data </p>
+
+<input type="button" value="Get Your Data" id="coolbutton">
+<p id="ChartHeader">Select Chart </p>
+<select id="heartORsteps" >
+<option style="display:none" disable selected value>Please select option</option>
+<option value="HeartRate">HeartRate</option>
+<option value="Steps">Steps</option>
+</select>
+<br>
+<input type="datetime-local" id="StartDate" value="2018-01-01" />
+<input type="datetime-local" id="EndDate" value="2018-01-01" />
+ <canvas id="canvas">{{ chart }}</canvas>
+
+</div>
+</div>
+
+<div *ngIf="users">
+<div *ngIf="user">
+<div *ngIf="user.role == 'Doctor'">
+<p id="DataHeader">Select Patients Data </p>
+<select id="DropDown" >
+<option style="display:none" disable selected value>Please select option</option>
+<option *ngFor="let users of users.users">
+   {{users.name}}
+</option>
+</select>
+<br>
+<input  type="button" value="Get Patients Data" id="coolbutton">
+<p id="ChartHeader">Select Chart </p>
+<select id="heartORsteps" >
+<option style="display:none" disable selected value>Please select option</option>
+<option value="HeartRate">HeartRate</option>
+<option value="Steps">Steps</option>
+</select>
+<br>
+<input type="datetime-local" id="StartDate" value="2018-01-01" />
+<input type="datetime-local" id="EndDate" value="2018-01-01" />
+
+    <canvas id="canvas">{{ chart }}</canvas>
+
+</div>
+</div>
+</div>
+<br>
+<br>
+</body>
+
+</html>
+

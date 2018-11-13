@@ -1,0 +1,23 @@
+{
+  "name": "HexiwearMeanStack",
+  "version": "1.0.0",
+  "description": "Hexi App",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app"
+  },
+  "dependencies": {
+    "bcryptjs": "*",
+    "body-parser": "*",
+    "cors": "*",
+    "express": "*",
+    "jsonwebtoken": "*",
+    "mongoose": "*",
+    "ng-loading-spinner": "^1.0.3",
+    "passport": "*",
+    "passport-jwt": "*"
+  },
+  "author": "Kyr",
+  "license": "ISC"
+}

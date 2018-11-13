@@ -1,0 +1,60 @@
+<div *ngIf="user">
+<div *ngIf="user.role == 'Doctor'">
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<h2 class="page-header">Register</h2>
+<form (submit)="onRegisterSubmit()" >
+  <div class="form-group">
+    <label for="name">Name</label>
+    <input type="text" [(ngModel)]="name" name="name" class="form-control" id="name" placeholder="Enter Name">
+  </div>
+  <div class="form-group">
+    <label for="username">Username</label>
+    <input type="text" [(ngModel)]="username" name="username" class="form-control" id="username" placeholder="Enter Username">
+  </div>
+  <div class="form-group">
+    <label for="email">Email</label>
+    <input type="email" [(ngModel)]="email" name="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter Email">
+    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+  </div>
+  <div class="form-group">
+    <label for="password">Password</label>
+    <input type="password" [(ngModel)]="password" name="password" class="form-control" id="password" placeholder=" Enter Password">
+  </div>
+   
+
+  
+    <label for="role">Role</label>
+    <br>
+    <select id="role" [(ngModel)]="role" name="role">
+      <option style="display:none" disable selected value>Please select option</option>
+      <option value="Doctor">Doctor</option>
+      <option value="Patient">Patient</option>
+    </select>
+ 
+ <div id="divdevice" class="form-group">
+    <label for="device">Device</label>
+    <input type="device" [(ngModel)]="device" name="device" class="form-control" id="device" placeholder=" Enter Patients Device MAC Address">
+    <small id="deviceHelp" class="form-text text-muted">Leave empty if registering a doctor.</small>
+  </div>
+  <input type="submit" class="btn btn-primary" value="Submit">
+</form>
+
+<br>
+<div align="center"> 
+<div *ngIf="user.role == 'Doctor'">
+<div *ngIf="users">
+<h2 class="page-header">Delete</h2>
+<p id="DataHeader">Select Patient</p>
+<form (submit)="onDeleteSubmit()" >
+<select id="DropDown" >
+<option style="display:none" disable selected value>Please select option</option>
+<option *ngFor="let users of users.users">
+   {{users.name}}
+</option>
+</select>
+<br>
+<input type="submit" class="btn btn-primary" value="Submit">
+</form>
+</div>
+</div>
+</div>

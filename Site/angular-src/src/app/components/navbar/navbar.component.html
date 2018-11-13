@@ -1,0 +1,50 @@
+<nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar"
+(click)="toggleState()">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href=#>Health and Care </a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse" [ngClass]="{ 'in': isIn }">
+          <ul class="nav navbar-nav navbar-left">
+            <li [routerLinkActive]="['active']" [routerLinkActiveOptions] = "{exact:true}"><a [routerLink]="['/']">Home</a></li>
+          </ul>
+
+          <ul class="nav navbar-nav navbar-right">
+            <li class="nav-item" *ngIf="authService.loggedIn() && !authService.DoctorLoggedIn()"  [routerLinkActive]="['active']" [routerLinkActiveOptions] = "{exact:true}">
+              <a class="nav-link" [routerLink]="['/caloricneeds']">Caloric Needs</a>
+            </li>
+            <li class="nav-item" *ngIf="authService.loggedIn()"  [routerLinkActive]="['active']" [routerLinkActiveOptions] = "{exact:true}">
+              <a class="nav-link" [routerLink]="['/dashboard']">Medical History</a>
+            </li>
+            <li class="nav-item" *ngIf="authService.loggedIn()"  [routerLinkActive]="['active']" [routerLinkActiveOptions] = "{exact:true}">
+              <a class="nav-link" [routerLink]="['/chat']">Chat</a>
+            </li>
+            <li class="nav-item" *ngIf="authService.loggedIn()" [routerLinkActive]="['active']" [routerLinkActiveOptions] = "{exact:true}">
+              <a class="nav-link" [routerLink]="['/profile']">Profile </a>
+            </li>
+            <li class="nav-item" *ngIf="!authService.loggedIn()" [routerLinkActive]="['active']" [routerLinkActiveOptions] = "{exact:true}">
+              <a class="nav-link" [routerLink]="['/login']">Login </a>
+            </li>
+            <li class="nav-item" *ngIf="!authService.loggedIn()"  [routerLinkActive]="['active']" [routerLinkActiveOptions] = "{exact:true}">
+              <a class="nav-link" [routerLink]="['/register']">Patient Catalog</a>
+            </li>
+            <li class="nav-item" *ngIf="authService.loggedIn()"><a class="nav-link" (click)="onLogoutClick()" href="#">Logout</a>
+            </li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+	<script>
+      //Change the /register part to the following if you want only Doctors (admins) to register/delete users
+     /* <li class="nav-item" *ngIf="authService.DoctorLoggedIn()"  [routerLinkActive]="['active']" [routerLinkActiveOptions] = "{exact:true}">
+              <a class="nav-link" [routerLink]="['/register']">Patient Catalog</a>
+            </li>
+           */ 
+</script>
+
