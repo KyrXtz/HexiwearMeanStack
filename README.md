@@ -1,5 +1,5 @@
 # HexiwearMeanStack
-Mean Stack site to display sensor data from hexiwear smartwatch
+Mean Stack site to display interactively sensor data transmitted from Hexiwear open source smartwatch and to provide access to health monitoring applications.
 ## Installation
 1) Run `npm install` on `./Site` directory. 
 2) Run `npm install` on `./Site/angular-src` directory.
